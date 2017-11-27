@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { AuthService } from './services/auth/auth.service';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthService } from './auth/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { AuthComponent } from './auth/auth.component'
 
 @NgModule({

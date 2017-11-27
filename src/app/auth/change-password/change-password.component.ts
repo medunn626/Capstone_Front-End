@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-password',
@@ -8,12 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class ChangePasswordComponent implements OnInit {
 
   // Not bound to multiple inputs, no object needed
-  oldPassword: string
-  newPassword: string
+  oldPassword: string;
+  newPassword: string;
 
-  constructor() { }
+  constructor(
+    public auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+
   }
 
+  changePassword() {
+    this.auth.changePassword(this.oldPassword, this.newPassword)
+  }
 }

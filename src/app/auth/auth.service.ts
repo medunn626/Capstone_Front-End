@@ -6,10 +6,12 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthService {
 
-  user: any
-  email: string
-  password: string
-  passwordConfirmation: string
+  user: any;
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+  oldPassword: string;
+  newPassword: string;
 
   getUserToken() {
     return this.user.token
@@ -23,7 +25,7 @@ export class AuthService {
         'passwordConfirmation': this.passwordConfirmation
       }
     }
-    this.http.post(environment.apiServer + '/sign-up', data)
+    this.http.post(environment.apiServer + '/login', data)
     .subscribe(
       response =>
       console.log('Response is', response)
@@ -46,6 +48,32 @@ export class AuthService {
         err => console.error()
       )
   }
+
+  changePassword(oldPassword, newPassword) {
+  const data = {
+    'data': {
+      'oldPassword': oldPassword,
+      'newPassword': newPassword
+    }
+  }
+  this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data)
+    .subscribe(
+      response => {
+        console.log('Response is', response)
+      },
+      err => console.error()
+    )
+  }
+
+  signOut() {
+  this.http.delete(environment.apiServer + '/sign-out/' + this.user.id)
+    .subscribe(
+      response => {
+        console.log('Response is', response)
+    },
+      err => console.error()
+    )
+}
 
   constructor(
     private http: Http,

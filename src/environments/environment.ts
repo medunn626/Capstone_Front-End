@@ -4,6 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
+  production: 'https://medunn626.github.io/Capstone_Front-End/',
   apiServer: 'http://localhost:4741'
 };

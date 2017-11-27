@@ -10,7 +10,9 @@ export class LoginComponent implements OnInit {
   // User object. Used to fix template binding
   user = <any>{};
 
-  constructor(public auth: AuthService) { }
+  constructor(
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
   }

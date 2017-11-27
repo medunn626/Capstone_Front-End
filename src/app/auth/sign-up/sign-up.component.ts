@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/auth.service'
 
 @Component({
   selector: 'app-sign-up',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
   // New user object. Used to fix template binding
-  newUser = <string>{};
+  newUser = <any>{};
 
-  constructor() { }
+  constructor(
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
   }
 
+  signUp() {
+    this.auth.signUp(this.newUser.email, this.newUser.password, this.newUser.passwordConfirmation)
+  }
 }

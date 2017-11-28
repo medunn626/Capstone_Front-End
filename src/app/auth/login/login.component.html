@@ -1,5 +1,14 @@
 <a class="hiddenanchor" id="toregister"></a>
-<div class="container animate">
+<div *ngIf="auth.signUpFailure" class="failure">
+  <h5>Please try again. This user already exists or you have entered the fields incorrectly.</h5>
+</div>
+<div *ngIf="auth.loginSuccess" class="success">
+  <h5>You are now signed in.</h5>
+</div>
+<div *ngIf="auth.loginFailure" class="failure">
+  <h5>Please try again. This user doesn't exist or you have entered the fields incorrectly.</h5>
+</div>
+<div class="container">
   <form>
     <legend>Log In!</legend>
     <label for="email">Email:</label><br>
@@ -13,7 +22,7 @@
   </form>
 </div><!--/ container-->
 
-<div class="animate">
+<div>
   <app-sign-up></app-sign-up>
 </div>
 

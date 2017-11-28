@@ -7,9 +7,10 @@ import { environment } from '../../environments/environment';
 export class AuthService {
 
   user: any;
-  // email: string;
-  // password: string;
-  // password_confirmation: string;
+  signUpSuccess: boolean;
+  signUpFailure: boolean;
+  loginSuccess: boolean;
+  loginFailure: boolean;
   oldPassword: string;
   newPassword: string;
 
@@ -25,9 +26,16 @@ export class AuthService {
     .subscribe(
       response => {
         this.login(data.credentials.email, data.credentials.password)
+        this.router.navigate(['/main'])
         console.log('Success')
       },
-      err => console.log('Error is', err)
+      err => {
+        console.log('Error is', err)
+        this.signUpSuccess = false
+        this.signUpFailure = true
+        this.loginSuccess = false
+        this.loginFailure = false
+      }
     )
   }
 
@@ -41,16 +49,26 @@ export class AuthService {
   return this.http.post(environment.apiServer + '/sign-in', data)
       .subscribe(
         response => {
-          this.router.navigate(["/login/"])
+          this.router.navigate(['/main/'])
           console.log('You are now logged in.')
+          this.loginSuccess = true
+          this.loginFailure = false
+          this.signUpSuccess = false
+          this.signUpFailure = false
         },
-        err => console.log('Error is', err)
+        err => {
+          console.log('Error is', err)
+          this.loginSuccess = false
+          this.loginFailure = true
+          this.signUpSuccess = false
+          this.signUpFailure = false
+        }
       )
     }
 
-    getUserToken() {
-      return this.user.token
-    }
+  getUserToken() {
+    return this.user.token
+  }
 
   changePassword(oldPassword, newPassword) {
   const data = {

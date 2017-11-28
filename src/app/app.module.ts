@@ -12,13 +12,14 @@ import { AuthRoutingModule } from './auth/auth-routing.module'
 import { AuthService } from './auth/auth.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    NavbarComponent
+    NavbarComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

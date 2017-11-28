@@ -15,7 +15,7 @@ export class AuthService {
 
   signUp(email: string, password: string, password_confirmation: string) {
     const data = {
-      'data': {
+      'credentials': {
         'email': email,
         'password': password,
         'password_confirmation': password_confirmation
@@ -24,7 +24,7 @@ export class AuthService {
     this.http.post(environment.apiServer + '/sign-up', data)
     .subscribe(
       response => {
-        this.login(data.data.email, data.data.password)
+        this.login(data.credentials.email, data.credentials.password)
         console.log('Success')
       },
       err => console.log('Error is', err)
@@ -33,7 +33,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     const data = {
-      'data': {
+      'credentials': {
         'email': email,
         'password': password
     }

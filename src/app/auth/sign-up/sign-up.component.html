@@ -1,7 +1,16 @@
-<div class="container">
-  <h3>Sign Up</h3>
-  <input [(ngModel)]="newUser.email" type="text" placeholder="Email"/>
-  <input [(ngModel)]="newUser.password" type="password" placeholder="Password"/>
-  <input [(ngModel)]="newUser.password_confirmation" type="password" placeholder="Confirm Passsword"/>
-  <input (click)="signUp()" type="submit" value="Sign Up"/>
-</div>
+<a class="hiddenanchor" id="tologin"></a>
+<div class="container animate">
+  <form>
+    <legend>Sign Up!</legend>
+    <label for="email">Email:</label><br>
+    <input [(ngModel)]="newUser.email" type="text" name="email" placeholder="Email"/><br>
+    <label for="password">Password:</label><br>
+    <input [(ngModel)]="newUser.password" type="password" name="password" placeholder="Password"/><br>
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input [(ngModel)]="newUser.password_confirmation" name="confirm_password" type="password" name="password_confirmation" placeholder="Confirm Passsword"/><br><br>
+    <a href="#tologin">Already a member? Sign In!</a>
+    <div class="lower">
+      <input (click)="signUp()" type="submit" value="Sign Up"/>
+    </div><!--/ lower-->
+  </form>
+</div><!--/ container-->

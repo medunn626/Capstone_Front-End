@@ -1,8 +1,20 @@
-<div class="container">
-  <h3>Log In</h3>
-  <input [(ngModel)]="user.email" type="text" placeholder="Email"/>
-  <input [(ngModel)]="user.password" type="password" placeholder="Password"/>
-  <input (click)="login()" type="submit" value="Log in"/>
+<a class="hiddenanchor" id="toregister"></a>
+<div class="container animate">
+  <form>
+    <legend>Log In!</legend>
+    <label for="email">Email:</label><br>
+    <input [(ngModel)]="user.email" name="email" type="text" placeholder="Email"/><br>
+    <label for="password">Password:</label><br>
+    <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password"/><br><br>
+    <a href="#toregister">Not a member yet? Join us!</a>
+    <div class="lower">
+      <input (click)="login()" type="submit" value="Log in"/>
+    </div><!--/ lower-->
+  </form>
+</div><!--/ container-->
+
+<div class="animate">
+  <app-sign-up></app-sign-up>
 </div>
 
-<div *ngIf="auth.user" class="container">I see a user!!! <strong>{{auth.user.email}}</strong></div>
+<div *ngIf="auth.user" class="user">I see a user!!! <strong>{{auth.user.email}}</strong></div>

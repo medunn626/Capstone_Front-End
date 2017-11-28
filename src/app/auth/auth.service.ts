@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -12,8 +14,6 @@ export class AuthService {
   signUpFailure: boolean;
   loginSuccess: boolean;
   loginFailure: boolean;
-  oldPassword: string;
-  newPassword: string;
 
   signUp(email: string, password: string, password_confirmation: string) {
     const data = {
@@ -72,29 +72,39 @@ export class AuthService {
     return this.user.token
   }
 
-  changePassword(oldPassword, newPassword) {
-  const data = {
-    'data': {
-      'oldPassword': this.oldPassword,
-      'newPassword': this.newPassword
+  changePassword(oldPassword: string, newPassword: string) {
+    const data = {
+      'passwords': {
+        'old': oldPassword,
+        'new': newPassword
+      }
     }
-  }
-  this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data)
+
+    let config = {}
+
+    config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+
+    this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data, config)
     .subscribe(
       response => {
-        console.log('Response is', response)
+        console.log('CPW response is', response)
       },
-      err => console.error()
+      err => {
+        console.log('Error is', err)
+      }
     )
   }
 
-  signOut() {
-  this.http.delete(environment.apiServer + '/sign-out/' + this.user.id)
+signOut() {
+
+  let config = {}
+
+  config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+
+  this.http.delete(environment.apiServer + '/sign-out/' + this.user.id, config)
     .subscribe(
-      response => {
-        console.log('Response is', response)
-    },
-      err => console.error()
+      data => this.user = null,
+      err => console.log(err)
     )
 }
 

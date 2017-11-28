@@ -125,7 +125,7 @@
 	background-image: url("../../writing_hands.png");
 }
 
-.cn-slide nav a[href="#slide-3"]{
+.cn-slide nav a[href="auth/change-password"]{
 	background-image: url("../../my-account.jpg");
 }
 

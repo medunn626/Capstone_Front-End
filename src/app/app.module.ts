@@ -13,6 +13,7 @@ import { AuthService } from './auth/auth.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
+import { MainService } from './main/main.service'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { MainComponent } from './main/main.component';
     AuthModule,
     AuthRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, MainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

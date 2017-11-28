@@ -7,53 +7,56 @@ import { environment } from '../../environments/environment';
 export class AuthService {
 
   user: any;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
+  // email: string;
+  // password: string;
+  // password_confirmation: string;
   oldPassword: string;
   newPassword: string;
 
-  getUserToken() {
-    return this.user.token
-  }
-
-  signUp(email, password, passwordConfirmation) {
+  signUp(email: string, password: string, password_confirmation: string) {
     const data = {
       'data': {
-        'email': this.email,
-        'password': this.password,
-        'passwordConfirmation': this.passwordConfirmation
+        'email': email,
+        'password': password,
+        'password_confirmation': password_confirmation
       }
     }
-    this.http.post(environment.apiServer + '/login', data)
+    this.http.post(environment.apiServer + '/sign-up', data)
     .subscribe(
-      response =>
-      console.log('Response is', response)
-    ),
-    err => console.error()
+      response => {
+        this.login(data.data.email, data.data.password)
+        console.log('Success')
+      },
+      err => console.log('Error is', err)
+    )
   }
 
-  login(email, password) {
-    const  data = {
+  login(email: string, password: string) {
+    const data = {
       'data': {
-        'email': this.email,
-        'password': this.password
+        'email': email,
+        'password': password
     }
   }
-  this.http.post(environment.apiServer + '/login', data)
+  return this.http.post(environment.apiServer + '/sign-in', data)
       .subscribe(
         response => {
-          console.log('Response is', response)
+          this.router.navigate(["/login/"])
+          console.log('You are now logged in.')
         },
-        err => console.error()
+        err => console.log('Error is', err)
       )
-  }
+    }
+
+    getUserToken() {
+      return this.user.token
+    }
 
   changePassword(oldPassword, newPassword) {
   const data = {
     'data': {
-      'oldPassword': oldPassword,
-      'newPassword': newPassword
+      'oldPassword': this.oldPassword,
+      'newPassword': this.newPassword
     }
   }
   this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data)

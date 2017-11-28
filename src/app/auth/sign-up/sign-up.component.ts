@@ -18,6 +18,6 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
-    this.auth.signUp(this.newUser.email, this.newUser.password, this.newUser.passwordConfirmation)
+    this.auth.signUp(this.newUser.email, this.newUser.password, this.newUser.password_confirmation)
   }
 }

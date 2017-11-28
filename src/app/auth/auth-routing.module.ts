@@ -7,7 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 
-const authRoutes = [
+const authRoutes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,

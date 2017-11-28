@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 export class AuthService {
 
   user: any;
+  isSignedOut: boolean = true;
   signUpSuccess: boolean;
   signUpFailure: boolean;
   loginSuccess: boolean;
@@ -26,8 +27,6 @@ export class AuthService {
     .subscribe(
       response => {
         this.login(data.credentials.email, data.credentials.password)
-        this.router.navigate(['/main'])
-        console.log('Success')
       },
       err => {
         console.log('Error is', err)
@@ -49,12 +48,15 @@ export class AuthService {
   return this.http.post(environment.apiServer + '/sign-in', data)
       .subscribe(
         response => {
-          this.router.navigate(['/main/'])
           console.log('You are now logged in.')
+          console.log(response)
+          this.user = JSON.parse(response['_body']).user
           this.loginSuccess = true
           this.loginFailure = false
           this.signUpSuccess = false
           this.signUpFailure = false
+          this.isSignedOut = false
+          this.router.navigate(['/main/'])
         },
         err => {
           console.log('Error is', err)

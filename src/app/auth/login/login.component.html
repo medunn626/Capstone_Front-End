@@ -3,12 +3,12 @@
   <h5>Please try again. This user already exists or you have entered the fields incorrectly.</h5>
 </div>
 <div *ngIf="auth.loginSuccess" class="success">
-  <h5>You are now signed in.</h5>
+  <h5>You are now signed in as {{auth.user.email}}.</h5>
 </div>
 <div *ngIf="auth.loginFailure" class="failure">
   <h5>Please try again. This user doesn't exist or you have entered the fields incorrectly.</h5>
 </div>
-<div class="container">
+<div *ngIf="auth.isSignedOut" class="container">
   <form>
     <legend>Log In!</legend>
     <label for="email">Email:</label><br>
@@ -25,5 +25,3 @@
 <div>
   <app-sign-up></app-sign-up>
 </div>
-
-<div *ngIf="auth.user" class="user">I see a user!!! <strong>{{auth.user.email}}</strong></div>

@@ -18,11 +18,7 @@ export class ChangePasswordComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    if (!localStorage.getItem('token')) {
-      this.router.navigate(['/'])
-    }
-  }
+  ngOnInit() {}
 
   changePassword() {
     this.auth.changePassword(this.oldPassword, this.newPassword)

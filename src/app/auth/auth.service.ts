@@ -98,8 +98,10 @@ signOut() {
       console.log('Error is', err)
       this.signOutSuccess = false
       this.signOutFailure = true
+    }
   )
 }
+
 changePassword(oldPassword: string, newPassword: string) {
   const data = {
     'passwords': {
@@ -109,13 +111,17 @@ changePassword(oldPassword: string, newPassword: string) {
   }
   let config = {}
   config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-  this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data, config)
+  this.http.patch(environment.apiServer + '/change-password/' + localStorage.getItem('id'), data, config)
   .subscribe(
     response => {
       console.log('CPW response is', response)
+      this.changePasswordSuccess = true
+      this.changePasswordFailure = false
     },
     err => {
       console.log('Error is', err)
+      this.changePasswordSuccess = false
+      this.changePasswordFailure = true
     }
   )
 }

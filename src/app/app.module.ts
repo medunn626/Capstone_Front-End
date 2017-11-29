@@ -13,14 +13,24 @@ import { AuthService } from './auth/auth.service';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
-import { MainService } from './main/main.service'
+import { MainService } from './main/main.service';
+import { CardsComponent } from './cards/cards.component';
+import { CardIndexComponent } from './card-index/card-index.component';
+import { CardNewComponent } from './card-new/card-new.component';
+import { CardShowComponent } from './card-show/card-show.component';
+import { CardEditComponent } from './card-edit/card-edit.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     NavbarComponent,
-    MainComponent
+    MainComponent,
+    CardsComponent,
+    CardIndexComponent,
+    CardNewComponent,
+    CardShowComponent,
+    CardEditComponent
   ],
   imports: [
     BrowserModule,

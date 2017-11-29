@@ -19,10 +19,17 @@ export class ChangePasswordComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    }
   }
 
   changePassword() {
     this.auth.changePassword(this.oldPassword, this.newPassword)
   }
+
+  signOut() {
+    this.auth.signOut()
+  }
+
 }

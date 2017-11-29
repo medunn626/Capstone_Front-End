@@ -8,12 +8,15 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class AuthService {
 
-  user: any;
   isSignedOut: boolean = true;
-  signUpSuccess: boolean;
-  signUpFailure: boolean;
   loginSuccess: boolean;
   loginFailure: boolean;
+  signUpSuccess: boolean;
+  signUpFailure: boolean;
+  signOutSuccess: boolean;
+  signOutFailure: boolean;
+  changePasswordSuccess: boolean;
+  changePasswordFailure: boolean;
 
   getUserToken() {
     console.log('This is', this)
@@ -32,8 +35,12 @@ export class AuthService {
     response => {
       console.log('You are now logged in.')
       console.log(response)
-      this.user = JSON.parse(response['_body']).user
-      console.log('This.user is', this.user)
+      const user = JSON.parse(response['_body']).user
+      console.log('User is', user)
+      localStorage.setItem('token', user.token)
+      localStorage.setItem('id', user.id)
+      console.log('Local storage token is', localStorage.getItem('token'))
+      console.log('Local storage ID is', localStorage.getItem('id'))
       this.loginSuccess = true
       this.loginFailure = false
       this.signUpSuccess = false
@@ -76,15 +83,24 @@ signUp(email: string, password: string, password_confirmation: string) {
 
 signOut() {
   let config = {}
-  config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
-  this.http.delete(environment.apiServer + '/sign-out/' + this.user.id, config)
+  config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+  this.http.delete(environment.apiServer + '/sign-out/' + localStorage.getItem('id'), config)
   .subscribe(
-    data => this.user = null,
-    err => console.log(err)
+    data => {
+      localStorage.clear()
+      console.log('Local storage token is', localStorage.getItem('token'))
+      console.log('Local storage ID is', localStorage.getItem('id'))
+      this.signOutSuccess = true
+      this.signOutFailure = false
+      this.router.navigate(['/'])
+    }
+    err => {
+      console.log('Error is', err)
+      this.signOutSuccess = false
+      this.signOutFailure = true
   )
 }
 changePassword(oldPassword: string, newPassword: string) {
-  console.log('Store is', store)
   const data = {
     'passwords': {
       'old': oldPassword,
@@ -92,7 +108,7 @@ changePassword(oldPassword: string, newPassword: string) {
     }
   }
   let config = {}
-  config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+  config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
   this.http.patch(environment.apiServer + '/change-password/' + this.user.id, data, config)
   .subscribe(
     response => {

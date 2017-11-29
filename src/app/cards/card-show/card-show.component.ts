@@ -22,6 +22,7 @@ export class CardShowComponent implements OnInit {
       .subscribe(response => {
         console.log(response.json());
         this.oneCard = response.json();
+        console.log('The one card is,' this.oneCard)
       });
     });
   }

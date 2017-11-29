@@ -1,8 +1,8 @@
 <div *ngIf="oneCard">
-	<h2>{{oneCard.name}}</h2>
-  <h3>{{oneCard.type_of_card}}</h3>
-	<h3>{{oneCard.email}}</h3>
-	<h3>{{oneCard.phone_number}}</h3>
-  <h3>{{oneCard.elevator_pitch}}</h3>
+	<h2>{{oneCard.card.name}}</h2>
+  <!-- <h3>{{oneCard.card.type_of_card}}</h3> -->
+	<h3>Email: {{oneCard.card.email}}</h3>
+	<h3>Phone: {{oneCard.card.phone_number}}</h3>
+  <h3>{{oneCard.card.elevator_pitch}}</h3>
 	<img [src]="oneCard.photo_url">
 </div>

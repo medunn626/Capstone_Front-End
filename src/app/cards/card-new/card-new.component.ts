@@ -26,8 +26,10 @@ export class CardNewComponent implements OnInit {
   	this.cardsService.saveCard(newCard)
   			.subscribe(response => {
 			console.log(response.json());
-			let card = response.json();
-			this.router.navigate(["/cards/" + card.id]);
+			let data = response.json();
+      console.log('Data is', data)
+      console.log('Data ID is', data.card.id)
+			this.router.navigate(["/cards/" + data.card.id]);
 		})
   }
 

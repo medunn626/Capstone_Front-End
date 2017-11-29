@@ -6,27 +6,48 @@ import { environment } from '../../environments/environment';
 export class CardsService {
 
   getAllCards() {
-    return this.http.get(environment.apiServer + '/cards');
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.get(environment.apiServer + '/cards', config);
   }
 
   getOneCard(cardId) {
     console.log('Card ID is', cardId);
-    return this.http.get(environment.apiServer + '/cards/' + cardId);
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.get(environment.apiServer + '/cards/' + cardId, config);
   }
 
   deleteCard(card) {
     console.log('Card ID is', card.id);
-    return this.http.delete(environment.apiServer + '/cards/' + card.Id);
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.delete(environment.apiServer + '/cards/' + card.Id, config);
   }
 
   saveCard(newCard) {
     console.log('New card is', newCard);
-    return this.http.post(environment.apiServer + '/cards', newCard);
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    let card = {
+      "card": {
+        "name": newCard.name,
+        "photo_url": newCard.photo_url,
+        "email": newCard.email,
+        "phone_number": newCard.phone_number,
+        "type_of_card": newCard.type_of_card,
+        "elevator_pitch": newCard.elevator_pitch,
+        "user_id": localStorage.getItem('id')
+      }
+    }
+    return this.http.post(environment.apiServer + '/cards', card, config);
   }
 
-  updateArtist(updatedArtist) {
-    console.log('updatedArtist is', updatedArtist);
-    return this.http.put(environment.apiServer + '/cards/', + card.Id);
+  updateCard(updatedCard) {
+    console.log('updatedCard is', updatedCard);
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.put(environment.apiServer + '/cards/', + card.Id, config);
   }
 
   constructor(private http: Http) { }

@@ -7,8 +7,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 
-import { AuthService } from './auth.service'
-
 const authRoutes: Routes = [
   {
     path: 'auth',
@@ -28,7 +26,6 @@ const authRoutes: Routes = [
   ],
   exports: [
     RouterModule
-  ],
-  providers: [AuthService]
+  ]
 })
 export class AuthRoutingModule { }

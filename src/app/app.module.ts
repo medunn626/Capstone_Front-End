@@ -14,7 +14,6 @@ import { AuthRoutingModule } from './auth/auth-routing.module'
 import { AuthService } from './auth/auth.service';
 
 import { MainComponent } from './main/main.component';
-import { MainService } from './main/main.service';
 
 import { CardsRoutingModule } from './cards/cards-routing.module';
 import { CardsModule } from './cards/cards.module';
@@ -36,7 +35,7 @@ import { CardsModule } from './cards/cards.module';
     CardsModule,
     CardsRoutingModule
   ],
-  providers: [AuthService, MainService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

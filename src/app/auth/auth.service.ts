@@ -78,7 +78,7 @@ signOut() {
   config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
   this.http.delete(environment.apiServer + '/sign-out/' + this.user.id, config)
   .subscribe(
-    data => this.user = null
+    data => this.user = null,
     err => console.log(err)
   )
 }

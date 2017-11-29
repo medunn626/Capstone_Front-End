@@ -5,8 +5,14 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
+interface ShareObj {
+  [store: string]: any;
+}
+
 @Injectable()
 export class AuthService {
+
+  shareObj: ShareObj = {};
 
   user: any;
   isSignedOut: boolean = true;
@@ -33,7 +39,9 @@ export class AuthService {
       console.log('You are now logged in.')
       console.log(response)
       this.user = JSON.parse(response['_body']).user
-      console.log('User is', this.user)
+      console.log('This.user is', this.user)
+      store = this.user
+      console.log('Store is', store)
       this.loginSuccess = true
       this.loginFailure = false
       this.signUpSuccess = false
@@ -84,6 +92,7 @@ signOut() {
   )
 }
 changePassword(oldPassword: string, newPassword: string) {
+  console.log('Store is', store)
   const data = {
     'passwords': {
       'old': oldPassword,

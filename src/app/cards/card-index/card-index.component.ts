@@ -19,7 +19,7 @@ export class CardIndexComponent implements OnInit {
   }
 
   constructor(
-    privaste cardsService : CardsService
+    private cardsService : CardsService
   ) { }
 
   ngOnInit() {

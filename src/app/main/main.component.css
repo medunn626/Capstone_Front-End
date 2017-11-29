@@ -80,11 +80,11 @@ a {
 }
 
 /* Main Items */
-.cn-slide nav a[href="#slide-1"]{
+.cn-slide nav a[href="cards"]{
 	background-image: url("../../Cards_FullRes_white.jpg");
 }
 
-.cn-slide nav a[href="#slide-2"]{
+.cn-slide nav a[href="cards/new"]{
 	background-image: url("../../writing_hands.png");
 }
 

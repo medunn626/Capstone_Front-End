@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute }   from '@angular/router';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-card-show',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardShowComponent implements OnInit {
 
-  constructor() { }
+  oneCard;
+
+  constructor(
+    private route : ActivatedRoute,
+    private cardsService: CardsService
+  ) { }
 
   ngOnInit() {
+    this.route.params.forEach( param => {
+      this.cardsService.getOneCard(param.id)
+      .subscribe(response => {
+        console.log(response.json());
+        this.oneCard = response.json();
+      });
+    });
   }
 
 }

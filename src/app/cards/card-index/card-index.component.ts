@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-card-index',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardIndexComponent implements OnInit {
 
-  constructor() { }
+  allCards = [];
+
+  deleteCard(deletedCard) {
+    this.cardsService.deleteCard(deletedCard)
+    .subscribe(response => {
+      let cardIndex = this.allCards.indexOf(deletedCard);
+      this.allCards.splice(cardIndex, 1);
+    });
+  }
+
+  constructor(
+    privaste cardsService : CardsService
+  ) { }
 
   ngOnInit() {
+    this.cardsService.getAllCards()
+      .subscribe(response => {
+        console.log(response.json());
+        this.allCards = response.json()
+      });
   }
 
 }

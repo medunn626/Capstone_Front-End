@@ -1,3 +1,28 @@
-<p>
-  card-index works!
-</p>
+<h2>Cards</h2>
+
+<a class="btn" routerLink="/cards/new">Add Card</a>
+
+<div class="cards">
+  <div class="row" *ngFor="let card of allCards">
+    <img [src]="card.photo_url" [alt]="card.name">
+    <ul>
+      <li>
+        <h2>
+          <a routerLink="/cards/{{card.id}}">
+            {{card.name}}
+          </a>
+        </h2>
+      </li>
+      <li>
+        <a routerLink="/cards/edit/{{card.id}}">
+          Edit
+        </a>
+      </li>
+      <li>
+        <form (ngSubmit)="deleteCard(card)">
+          <input type="submit" value="Delete"/>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>

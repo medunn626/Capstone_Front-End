@@ -1,3 +1,8 @@
-<p>
-  card-show works!
-</p>
+<div *ngIf="oneCard">
+	<h2>{{oneCard.name}}</h2>
+  <h3>{{oneCard.type_of_card}}</h3>
+	<h3>{{oneCard.email}}</h3>
+	<h3>{{oneCard.phone_number}}</h3>
+  <h3>{{oneCard.elevator_pitch}}</h3>
+	<img [src]="oneCard.photo_url">
+</div>

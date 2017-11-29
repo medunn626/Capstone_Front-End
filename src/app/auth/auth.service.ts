@@ -16,6 +16,7 @@ export class AuthService {
   loginFailure: boolean;
 
   getUserToken() {
+    console.log('This is', this)
     return this.user.token
   }
 

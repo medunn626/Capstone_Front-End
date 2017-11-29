@@ -1,3 +1,23 @@
-<p>
-  card-edit works!
-</p>
+<h2>Edit Card</h2>
+
+<form (ngSubmit)="updatedCard(updatedCard)">
+  <label for="name">Name:</label>
+  <input name="name" [(ngModel)]="updatedCard.name">
+
+  <label for="type_of_card">Type:</label>
+  <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card">
+
+  <label for="photo_url">Photo URL:</label>
+  <input name="photo_url" [(ngModel)]="updatedCard.photo_url">
+
+  <label for="email_address">Email Address:</label>
+  <input name="email_address" [(ngModel)]="updatedCard.email">
+
+  <label for="phone_number">Phone Number:</label>
+  <input name="phone_number" [(ngModel)]="updatedCard.phone_number">
+
+  <label for="elevator_pitch">Elevator Pitch:</label>
+  <input name="elevator_pitch" [(ngModel)]="updatedCard.elevator_pitch">
+
+  <input type="submit" value="Update">
+</form>

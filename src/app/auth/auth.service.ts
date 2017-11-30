@@ -93,7 +93,7 @@ signOut() {
       this.signOutSuccess = true
       this.signOutFailure = false
       this.router.navigate(['/'])
-    }
+    },
     err => {
       console.log('Error is', err)
       this.signOutSuccess = false

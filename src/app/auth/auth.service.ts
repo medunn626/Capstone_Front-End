@@ -18,11 +18,6 @@ export class AuthService {
   changePasswordSuccess: boolean;
   changePasswordFailure: boolean;
 
-  getUserToken() {
-    console.log('This is', this)
-    return this.user.token
-  }
-
   login(email: string, password: string) {
     const data = {
       'credentials': {

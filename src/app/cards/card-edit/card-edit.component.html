@@ -1,15 +1,15 @@
 <div class="container">
   <div class="back">
     <br>
-    <a href="/main"><img src="http://downloadicons.net/sites/default/files/back-arrow-icon-63664.png" height="45px" weight="45px" alt="Back">Go Back</a>
+    <a href="/cards"><img src="http://downloadicons.net/sites/default/files/back-arrow-icon-63664.png" height="45px" weight="45px" alt="Back">Go Back</a>
     <br>
   </div>
   <form (ngSubmit)="updateCard(updatedCard)">
     <legend>Edit Card</legend>
+    <label for="type_of_card">Description (for your reference only):</label>
+    <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card" placeholder={{updatedCard.card.type_of_card}}><br>
     <label for="name">Name:</label>
     <input name="name" [(ngModel)]="updatedCard.name" placeholder={{updatedCard.card.name}}><br>
-    <label for="type_of_card">Type:</label>
-    <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card" placeholder={{updatedCard.card.type_of_card}}><br>
     <label for="photo_url">Photo URL:</label>
     <input name="photo_url" [(ngModel)]="updatedCard.photo_url" placeholder={{updatedCard.card.photo_url}}><br>
     <label for="email_address">Email Address:</label>

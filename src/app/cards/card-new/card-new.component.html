@@ -6,10 +6,10 @@
   </div>
   <form (ngSubmit)="saveCard(newCard)">
     <legend>New Card</legend>
-    <label for="name">Name:</label>
-    <input name="name" [(ngModel)]="newCard.name"><br>
-    <label for="type_of_card">Type:</label>
+    <label for="type_of_card">Description (for your reference only):</label>
     <input name="type_of_card" [(ngModel)]="newCard.type_of_card"><br>
+    <label for="name">Your Full Name:</label>
+    <input name="name" [(ngModel)]="newCard.name"><br>
     <label for="photo_url">Photo URL:</label>
     <input name="photo_url" [(ngModel)]="newCard.photo_url"><br>
     <label for="email_address">Email Address:</label>

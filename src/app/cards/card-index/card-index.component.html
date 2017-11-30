@@ -1,26 +1,24 @@
-<h2>Your Contact Cards</h2>
-
-<div class="cards">
-  <div class="row" *ngFor="let card of allCards">
-    <!-- <img [src]="card.photo_url" [alt]="card.name"> -->
-    <ul>
-      <li>
-        <h2>
-          <a routerLink="/cards/{{card.id}}">
-            {{card.name}}
-          </a>
-        </h2>
-      </li>
-      <li>
-        <a routerLink="/cards/edit/{{card.id}}">
-          Edit
-        </a>
-      </li>
-      <li>
-        <form (ngSubmit)="deleteCard(card)">
-          <input type="submit" value="Delete"/>
-        </form>
-      </li>
-    </ul>
+<div class="container">
+  <div class="back">
+    <br>
+    <a href="/main" class="back"><img src="http://downloadicons.net/sites/default/files/back-arrow-icon-63664.png" height="45px" weight="45px" alt="Back">Go Back</a>
+    <br>
   </div>
+  <form>
+    <legend>Your Contact Cards</legend>
+    <div class="cards">
+      <div class="row" *ngFor="let card of allCards">
+        <h3>
+          <img [src]="card.photo_url" width="20" height="20" alt="">
+          <a routerLink="/cards/{{card.id}}">
+            {{card.type_of_card}}
+          </a>
+        </h3>
+        <input type="button" class="btn-info" routerLink="/cards/edit/{{card.id}}" value="Edit">
+        <form (ngSubmit)="deleteCard(card)">
+          <input type="submit" class="btn-danger" value="Delete"/>
+        </form>
+      </div>
+    </div>
+  </form>
 </div>

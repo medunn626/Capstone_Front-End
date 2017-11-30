@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html {
-  background-color: #F5F5DC
+html, body {
+ width: 100%;
+ height: 100%;
+ font-family: "Helvetica Neue", Helvetica, sans-serif;
+ color: #444;
+ -webkit-font-smoothing: antialiased;
+background: #f0f0f0;
 }

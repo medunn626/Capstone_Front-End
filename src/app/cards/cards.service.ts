@@ -8,6 +8,7 @@ export class CardsService {
   deleteCardSuccess: boolean;
   deleteCardFailure: boolean;
   createCardFailure: boolean;
+  updateCardFailure: boolean;
 
   getAllCards() {
     let config = {}

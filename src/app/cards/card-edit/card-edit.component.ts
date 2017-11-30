@@ -30,13 +30,19 @@ export class CardEditComponent implements OnInit {
   updateCard(updatedCard) {
     console.log("updating card yo!");
     this.cardsService.updateCard(updatedCard)
-    .subscribe(response => {
-      console.log(response.json());
-      let data = response.json();
-      console.log('Data is', data)
-      console.log('Data ID is', data.card.id)
-      this.router.navigate(["/cards/" + data.card.id]);
-    });
-  }
+    .subscribe(
+      response => {
+        console.log(response.json());
+        let data = response.json();
+        console.log('Data is', data)
+        console.log('Data ID is', data.card.id)
+        this.router.navigate(["/cards/" + data.card.id]);
+    },
+    err => {
+      console.log('Error is', err)
+      this.cardsService.updateCardFailure = true
+    }
+  )
+}
 
 }

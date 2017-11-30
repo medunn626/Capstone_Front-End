@@ -29,7 +29,7 @@ export class CardsService {
     console.log('New card is', newCard);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-    let card = {
+    let cardCreateParams = {
       "card": {
         "name": newCard.name,
         "photo_url": newCard.photo_url,
@@ -40,14 +40,25 @@ export class CardsService {
         "user_id": localStorage.getItem('id')
       }
     }
-    return this.http.post(environment.apiServer + '/cards', card, config);
+    return this.http.post(environment.apiServer + '/cards', cardCreateParams, config);
   }
 
   updateCard(updatedCard) {
     console.log('updatedCard is', updatedCard);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-    return this.http.put(environment.apiServer + '/cards/', + card.Id, config);
+    let cardUpdateParams = {
+      "card": {
+        "name": updatedCard.name,
+        "photo_url": updatedCard.photo_url,
+        "email": updatedCard.email,
+        "phone_number": updatedCard.phone_number,
+        "type_of_card": updatedCard.type_of_card,
+        "elevator_pitch": updatedCard.elevator_pitch,
+        "user_id": localStorage.getItem('id')
+      }
+    }
+    return this.http.put(environment.apiServer + '/cards/' + updatedCard.card.id, cardUpdateParams, config);
   }
 
   constructor(private http: Http) { }

@@ -1,23 +1,23 @@
 <h2>Edit Card</h2>
 
-<form (ngSubmit)="updatedCard(updatedCard)">
+<form (ngSubmit)="updateCard(updatedCard)">
   <label for="name">Name:</label>
-  <input name="name" [(ngModel)]="updatedCard.name">
+  <input name="name" [(ngModel)]="updatedCard.name" placeholder={{updatedCard.card.name}}>
 
   <label for="type_of_card">Type:</label>
-  <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card">
+  <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card" placeholder={{updatedCard.card.type_of_card}}>
 
   <label for="photo_url">Photo URL:</label>
-  <input name="photo_url" [(ngModel)]="updatedCard.photo_url">
+  <input name="photo_url" [(ngModel)]="updatedCard.photo_url" placeholder={{updatedCard.card.photo_url}}>
 
   <label for="email_address">Email Address:</label>
-  <input name="email_address" [(ngModel)]="updatedCard.email">
+  <input name="email_address" [(ngModel)]="updatedCard.email" placeholder={{updatedCard.card.email}}>
 
   <label for="phone_number">Phone Number:</label>
-  <input name="phone_number" [(ngModel)]="updatedCard.phone_number">
+  <input name="phone_number" [(ngModel)]="updatedCard.phone_number" placeholder={{updatedCard.card.phone_number}}>
 
   <label for="elevator_pitch">Elevator Pitch:</label>
-  <input name="elevator_pitch" [(ngModel)]="updatedCard.elevator_pitch">
+  <input name="elevator_pitch" [(ngModel)]="updatedCard.elevator_pitch" placeholder={{updatedCard.card.elevator_pitch}}>
 
   <input type="submit" value="Update">
 </form>

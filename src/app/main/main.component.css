@@ -1,11 +1,14 @@
 .cn-container{
+  top: 4%;
+  left: 15%;
 	width: 100%;
   min-width: 600px;
 	max-width: 820px;
 	margin: 10px auto 0 auto;
-	text-align: left;
   text-transform: uppercase;
-	position: relative;
+	position: fixed;
+  height: auto;
+
 }
 
 h2 {

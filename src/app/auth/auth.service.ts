@@ -98,27 +98,32 @@ signOut() {
 }
 
 changePassword(oldPassword: string, newPassword: string) {
-  const data = {
-    'passwords': {
-      'old': oldPassword,
-      'new': newPassword
+  if (oldPassword != newPassword ) {
+    const data = {
+      'passwords': {
+        'old': oldPassword,
+        'new': newPassword
+      }
     }
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    this.http.patch(environment.apiServer + '/change-password/' + localStorage.getItem('id'), data, config)
+    .subscribe(
+      response => {
+        console.log('CPW response is', response)
+        this.changePasswordSuccess = true
+        this.changePasswordFailure = false
+      },
+      err => {
+        console.log('Error is', err)
+        this.changePasswordSuccess = false
+        this.changePasswordFailure = true
+      }
+    )
+  } else {
+    this.changePasswordSuccess = false
+    this.changePasswordFailure = true
   }
-  let config = {}
-  config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-  this.http.patch(environment.apiServer + '/change-password/' + localStorage.getItem('id'), data, config)
-  .subscribe(
-    response => {
-      console.log('CPW response is', response)
-      this.changePasswordSuccess = true
-      this.changePasswordFailure = false
-    },
-    err => {
-      console.log('Error is', err)
-      this.changePasswordSuccess = false
-      this.changePasswordFailure = true
-    }
-  )
 }
 
 constructor(

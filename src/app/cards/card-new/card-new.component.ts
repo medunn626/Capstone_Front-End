@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class CardNewComponent implements OnInit {
 
   newCard = <any>{};
-  createCardFailure: boolean;
 
   constructor(
     private router : Router,
@@ -22,6 +21,12 @@ export class CardNewComponent implements OnInit {
   }
 
   saveCard(newCard) {
+    const newDescription = document.getElementById('new-description')
+    const newName = document.getElementById('new-name')
+    const newPhoto = document.getElementById('new-photo')
+    const newEmail = document.getElementById('new-email')
+    const newPhone = document.getElementById('new-phone')
+    const newElevator = document.getElementById('new-elevator')
     console.log("saving card");
     console.log(newCard);
     this.cardsService.saveCard(newCard)
@@ -31,13 +36,18 @@ export class CardNewComponent implements OnInit {
         let data = response.json();
         console.log('Data is', data)
         console.log('Data ID is', data.card.id)
-        // this.createCardFailure = false
         this.router.navigate(["/cards/" + data.card.id]);
+      },
+      err => {
+        console.log('Error is', err)
+        this.cardsService.createCardFailure = true
+        newDescription.value = ''
+        newName.value = ''
+        newPhoto.value = ''
+        newEmail.value = ''
+        newPhone.value = ''
+        newElevator.value = ''
       }
-      // err => {
-      //   console.log('Error is', err)
-      //   this.createCardFailure = true
-      // }
     )
   }
 

@@ -1,6 +1,6 @@
-<!-- <div *ngIf="card.createCardFailure" class="failure">
-  <h5>Could not create this card. Please ensure all of the fields are entered correctly.</h5>
-</div> -->
+<div *ngIf="cardsService.createCardFailure" class="failure">
+  <h5>Sorry, this card could not be created.</h5>
+</div>
 <div class="container">
   <div class="back">
     <br>
@@ -10,17 +10,17 @@
   <form (ngSubmit)="saveCard(newCard)" ngNativeValidate>
     <legend>New Card</legend>
     <label for="type_of_card">Description (for your reference only):</label>
-    <input name="type_of_card" [(ngModel)]="newCard.type_of_card" required/><br>
+    <input name="type_of_card" [(ngModel)]="newCard.type_of_card" id="new-description" required/><br>
     <label for="name">Your Full Name:</label>
-    <input name="name" [(ngModel)]="newCard.name" required/><br>
+    <input name="name" [(ngModel)]="newCard.name" id="new-name" required/><br>
     <label for="photo_url">Photo URL (Optional):</label>
-    <input name="photo_url" [(ngModel)]="newCard.photo_url"><br>
+    <input name="photo_url" [(ngModel)]="newCard.photo_url" id="new-photo"><br>
     <label for="email_address">Email Address:</label>
-    <input name="email_address" [(ngModel)]="newCard.email" required/><br>
+    <input name="email_address" [(ngModel)]="newCard.email" id="new-email" required/><br>
     <label for="phone_number">Phone Number:</label>
-    <input name="phone_number" [(ngModel)]="newCard.phone_number" required/><br>
+    <input name="phone_number" [(ngModel)]="newCard.phone_number" id="new-phone" required/><br>
     <label for="elevator_pitch">Elevator Pitch (Optional):</label><br>
-    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch"></textarea>
+    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch" id="new-elevator"></textarea>
     <div class="lower">
       <input type="submit" value="Create">
     </div>

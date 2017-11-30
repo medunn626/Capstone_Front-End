@@ -7,6 +7,7 @@ export class CardsService {
 
   deleteCardSuccess: boolean;
   deleteCardFailure: boolean;
+  createCardFailure: boolean;
 
   getAllCards() {
     let config = {}

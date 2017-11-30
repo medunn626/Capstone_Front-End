@@ -1,12 +1,13 @@
 .container {
  z-index: 22;
- position: absolute;
- width: 50%;
- height: 56%;
- top: 29%;
+ text-align: center;
+ position: fixed;
  left: 50%;
- margin-top: -140px;
- margin-left: -170px;
+ width:30em;
+ margin-top: -9em;
+ margin-left: -15em;
+ height: auto;
+ top: 28%;
  background: #fff;
  border-radius: 3px;
  border: 1px solid #ccc;
@@ -127,34 +128,6 @@ input[type=submit]:active {
  background-image: -moz-linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
  background-image: linear-gradient(to bottom left 90deg, #6ec2e8 0%, #b6e2ff 100%);
 }
-
-/*.login {
-  opacity: 0;
-  z-index: 21;
-}*/
-
-/*#tologin:target ~ .login {
-	z-index: 22;
-	animation-name: fadeInLeft;
-	animation-delay: .1s;
-}*/
-
-/*.animate{
-	animation-duration: 0.5s;
-	animation-timing-function: ease;
-	animation-fill-mode: both;
-}
-@keyframes fadeInLeft {
-	0% {
-		opacity: 0;
-		transform: translateX(-20px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}*/
 
 #tologin:target ~ .container {
 	animation-name: fadeOutLeftBig;

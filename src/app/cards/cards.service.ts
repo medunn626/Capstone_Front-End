@@ -5,6 +5,9 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class CardsService {
 
+  deleteCardSuccess: boolean;
+  deleteCardFailure: boolean;
+
   getAllCards() {
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
@@ -22,7 +25,7 @@ export class CardsService {
     console.log('Card ID is', card.id);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-    return this.http.delete(environment.apiServer + '/cards/' + card.id, config);
+    return this.http.delete(environment.apiServer + '/cards/' + card.id, config)
   }
 
   saveCard(newCard) {

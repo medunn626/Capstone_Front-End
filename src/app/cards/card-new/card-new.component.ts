@@ -14,7 +14,7 @@ export class CardNewComponent implements OnInit {
 
   constructor(
     private router : Router,
-    private cardsService : CardsService,
+    private cardsService : CardsService
   ) { }
 
   ngOnInit() {

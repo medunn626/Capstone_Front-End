@@ -12,14 +12,24 @@ export class CardIndexComponent implements OnInit {
 
   deleteCard(deletedCard) {
     this.cardsService.deleteCard(deletedCard)
-    .subscribe(response => {
-      let cardIndex = this.allCards.indexOf(deletedCard);
-      this.allCards.splice(cardIndex, 1);
-    });
+    .subscribe(
+      response => {
+        let cardIndex = this.allCards.indexOf(deletedCard);
+        this.allCards.splice(cardIndex, 1);
+        this.cardsService.deleteCardSuccess = true
+        this.cardsService.deleteCardFailure = false
+      },
+      err => {
+        console.log('Error is', err)
+        this.cardsService.deleteCardSuccess = false
+        this.cardsService.deleteCardFailure = true
+      }
+    );
   }
 
   constructor(
-    private cardsService : CardsService
+    private cardsService : CardsService,
+
   ) { }
 
   ngOnInit() {

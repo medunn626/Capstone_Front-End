@@ -26,7 +26,8 @@ export class CardIndexComponent implements OnInit {
     this.cardsService.getAllCards()
       .subscribe(response => {
         console.log(response.json());
-        this.allCards = response.json()
+        this.allCards = response.json()['cards']
+        console.log('All cards are', this.allCards)
       });
   }
 

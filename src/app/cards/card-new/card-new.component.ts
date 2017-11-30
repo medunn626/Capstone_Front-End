@@ -31,13 +31,13 @@ export class CardNewComponent implements OnInit {
         let data = response.json();
         console.log('Data is', data)
         console.log('Data ID is', data.card.id)
-        this.createCardFailure = false
+        // this.createCardFailure = false
         this.router.navigate(["/cards/" + data.card.id]);
-      },
-      err => {
-        console.log('Error is', err)
-        this.createCardFailure = true
       }
+      // err => {
+      //   console.log('Error is', err)
+      //   this.createCardFailure = true
+      // }
     )
   }
 

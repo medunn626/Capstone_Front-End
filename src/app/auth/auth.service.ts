@@ -9,11 +9,11 @@ import { environment } from '../../environments/environment';
 export class AuthService {
 
   isSignedOut: boolean = true;
-  loginSuccess: boolean;
+  // loginSuccess: boolean;
   loginFailure: boolean;
-  signUpSuccess: boolean;
+  // signUpSuccess: boolean;
   signUpFailure: boolean;
-  signOutSuccess: boolean;
+  // signOutSuccess: boolean;
   signOutFailure: boolean;
   changePasswordSuccess: boolean;
   changePasswordFailure: boolean;
@@ -36,44 +36,43 @@ export class AuthService {
       localStorage.setItem('id', user.id)
       console.log('Local storage token is', localStorage.getItem('token'))
       console.log('Local storage ID is', localStorage.getItem('id'))
-      this.loginSuccess = true
       this.loginFailure = false
-      this.signUpSuccess = false
       this.signUpFailure = false
       this.isSignedOut = false
       this.router.navigate(['/main/'])
     },
     err => {
       console.log('Error is', err)
-      this.loginSuccess = false
       this.loginFailure = true
-      this.signUpSuccess = false
       this.signUpFailure = false
     }
   )
 }
 
 signUp(email: string, password: string, password_confirmation: string) {
-  const data = {
-    'credentials': {
-      'email': email,
-      'password': password,
-      'password_confirmation': password_confirmation
+  if (password == password_confirmation) {
+    const data = {
+      'credentials': {
+        'email': email,
+        'password': password,
+        'password_confirmation': password_confirmation
+      }
     }
+    this.http.post(environment.apiServer + '/sign-up', data)
+    .subscribe(
+      response => {
+        this.login(data.credentials.email, data.credentials.password)
+      },
+      err => {
+        console.log('Error is', err)
+        this.signUpFailure = true
+        this.loginFailure = false
+      }
+    )
+  } else {
+    this.signUpFailure = true
+    this.loginFailure = false
   }
-  this.http.post(environment.apiServer + '/sign-up', data)
-  .subscribe(
-    response => {
-      this.login(data.credentials.email, data.credentials.password)
-    },
-    err => {
-      console.log('Error is', err)
-      this.signUpSuccess = false
-      this.signUpFailure = true
-      this.loginSuccess = false
-      this.loginFailure = false
-    }
-  )
 }
 
 signOut() {
@@ -85,13 +84,11 @@ signOut() {
       localStorage.clear()
       console.log('Local storage token is', localStorage.getItem('token'))
       console.log('Local storage ID is', localStorage.getItem('id'))
-      this.signOutSuccess = true
       this.signOutFailure = false
       this.router.navigate(['/'])
     },
     err => {
       console.log('Error is', err)
-      this.signOutSuccess = false
       this.signOutFailure = true
     }
   )

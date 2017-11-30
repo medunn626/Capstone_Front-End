@@ -1,6 +1,6 @@
-<div *ngIf="card.createCardFailure" class="failure">
+<!-- <div *ngIf="card.createCardFailure" class="failure">
   <h5>Could not create this card. Please ensure all of the fields are entered correctly.</h5>
-</div>
+</div> -->
 <div class="container">
   <div class="back">
     <br>
@@ -10,7 +10,7 @@
   <form (ngSubmit)="saveCard(newCard)">
     <legend>New Card</legend>
     <label for="type_of_card">Description (for your reference only):</label>
-    <input name="type_of_card" [(ngModel)]="newCard.type_of_card"><br>
+    <input ng-required="required" name="type_of_card" [(ngModel)]="newCard.type_of_card"><br>
     <label for="name">Your Full Name:</label>
     <input name="name" [(ngModel)]="newCard.name"><br>
     <label for="photo_url">Photo URL:</label>

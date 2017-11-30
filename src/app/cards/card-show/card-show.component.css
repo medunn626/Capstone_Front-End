@@ -1,8 +1,8 @@
 .container {
  z-index: 22;
- position: absolute;
+ position: fixed;
+ height: auto;
  width: 50%;
- height: 61%;
  top: 29%;
  left: 50%;
  margin-top: -140px;

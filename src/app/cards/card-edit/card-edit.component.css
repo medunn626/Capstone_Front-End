@@ -10,13 +10,13 @@
 
 .container {
  z-index: 22;
- position: absolute;
- width: 50%;
- height: 61%;
- top: 29%;
+ position: fixed;
+ width: auto;
+ height: auto;
+ top: 28%;
  left: 50%;
- margin-top: -140px;
- margin-left: -170px;
+ margin-top: -9em;
+ margin-left: -15em;
  background: #fff;
  border-radius: 3px;
  border: 1px solid #ccc;
@@ -42,6 +42,10 @@ form {
  display: block;
  margin: 0 auto;
  margin-top: 20px;
+}
+
+legend {
+  text-align: center
 }
 
 label {

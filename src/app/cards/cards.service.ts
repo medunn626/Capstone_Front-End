@@ -22,7 +22,7 @@ export class CardsService {
     console.log('Card ID is', card.id);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-    return this.http.delete(environment.apiServer + '/cards/' + card.Id, config);
+    return this.http.delete(environment.apiServer + '/cards/' + card.id, config);
   }
 
   saveCard(newCard) {

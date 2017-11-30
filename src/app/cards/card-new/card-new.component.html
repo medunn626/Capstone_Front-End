@@ -1,23 +1,25 @@
-<h2>New Card</h2>
-
-<form (ngSubmit)="saveCard(newCard)">
-  <label for="name">Name:</label>
-  <input name="name" [(ngModel)]="newCard.name">
-
-  <label for="type_of_card">Type:</label>
-  <input name="type_of_card" [(ngModel)]="newCard.type_of_card">
-
-  <label for="photo_url">Photo URL:</label>
-  <input name="photo_url" [(ngModel)]="newCard.photo_url">
-
-  <label for="email_address">Email Address:</label>
-  <input name="email_address" [(ngModel)]="newCard.email">
-
-  <label for="phone_number">Phone Number:</label>
-  <input name="phone_number" [(ngModel)]="newCard.phone_number">
-
-  <label for="elevator_pitch">Elevator Pitch:</label>
-  <input name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch">
-
-  <input type="submit" value="Create">
-</form>
+<div class="container">
+  <div class="back">
+    <br>
+    <a href="/main"><img src="http://downloadicons.net/sites/default/files/back-arrow-icon-63664.png" height="45px" weight="45px" alt="Back">Go Back</a>
+    <br>
+  </div>
+  <form (ngSubmit)="saveCard(newCard)">
+    <legend>New Card</legend>
+    <label for="name">Name:</label>
+    <input name="name" [(ngModel)]="newCard.name"><br>
+    <label for="type_of_card">Type:</label>
+    <input name="type_of_card" [(ngModel)]="newCard.type_of_card"><br>
+    <label for="photo_url">Photo URL:</label>
+    <input name="photo_url" [(ngModel)]="newCard.photo_url"><br>
+    <label for="email_address">Email Address:</label>
+    <input name="email_address" [(ngModel)]="newCard.email"><br>
+    <label for="phone_number">Phone Number:</label>
+    <input name="phone_number" [(ngModel)]="newCard.phone_number"><br>
+    <label for="elevator_pitch">Elevator Pitch:</label><br>
+    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch"></textarea>
+    <div class="lower">
+      <input type="submit" value="Create">
+    </div>
+  </form>
+</div>

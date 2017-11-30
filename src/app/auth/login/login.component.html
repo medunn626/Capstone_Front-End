@@ -12,9 +12,9 @@
   <form ngNativeValidate>
     <legend>Log In!</legend>
     <label for="email">Email:</label><br>
-    <input [(ngModel)]="user.email" name="email" type="text" placeholder="Email" required/><br>
+    <input [(ngModel)]="user.email" id="email-log" name="email" type="text" placeholder="Email" required/><br>
     <label for="password">Password:</label><br>
-    <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required/><br><br>
+    <input [(ngModel)]="user.password" id="password-log" name="password" type="password" placeholder="Password" required/><br><br>
     <a href="#toregister">Not a member yet? Join us!</a>
     <div class="lower">
       <input (click)="login()" type="submit" value="Log in"/>

@@ -19,6 +19,8 @@ export class AuthService {
   changePasswordFailure: boolean;
 
   login(email: string, password: string) {
+    const emailField = document.getElementById('email-log')
+    const passwordField = document.getElementById('password-log')
     const data = {
       'credentials': {
         'email': email,
@@ -45,11 +47,16 @@ export class AuthService {
       console.log('Error is', err)
       this.loginFailure = true
       this.signUpFailure = false
+      emailField.value = ''
+      passwordField.value = ''
     }
   )
 }
 
 signUp(email: string, password: string, password_confirmation: string) {
+  const newEmailField = document.getElementById('email-sign')
+  const newPasswordField = document.getElementById('password-sign')
+  const passwordConfirmField = document.getElementById('password-confirm-sign')
   if (password == password_confirmation) {
     const data = {
       'credentials': {
@@ -67,11 +74,17 @@ signUp(email: string, password: string, password_confirmation: string) {
         console.log('Error is', err)
         this.signUpFailure = true
         this.loginFailure = false
+        newEmailField.value = ''
+        newPasswordField.value = ''
+        passwordConfirmField.value = ''
       }
     )
   } else {
     this.signUpFailure = true
     this.loginFailure = false
+    newEmailField.value = ''
+    newPasswordField.value = ''
+    passwordConfirmField.value = ''
   }
 }
 
@@ -95,6 +108,8 @@ signOut() {
 }
 
 changePassword(oldPassword: string, newPassword: string) {
+  const oldField = document.getElementById('old')
+  const newField = document.getElementById('new')
   if (oldPassword != newPassword ) {
     const data = {
       'passwords': {
@@ -110,16 +125,22 @@ changePassword(oldPassword: string, newPassword: string) {
         console.log('CPW response is', response)
         this.changePasswordSuccess = true
         this.changePasswordFailure = false
+        oldField.value = ''
+        newField.value = ''
       },
       err => {
         console.log('Error is', err)
         this.changePasswordSuccess = false
         this.changePasswordFailure = true
+        oldField.value = ''
+        newField.value = ''
       }
     )
   } else {
     this.changePasswordSuccess = false
     this.changePasswordFailure = true
+    oldField.value = ''
+    newField.value = ''
   }
 }
 

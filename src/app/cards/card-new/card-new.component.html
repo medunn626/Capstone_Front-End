@@ -7,19 +7,19 @@
     <a href="main"><img src="http://downloadicons.net/sites/default/files/back-arrow-icon-63664.png" height="45px" weight="45px" alt="Back">Go Back</a>
     <br>
   </div>
-  <form (ngSubmit)="saveCard(newCard)">
+  <form (ngSubmit)="saveCard(newCard)" ngNativeValidate>
     <legend>New Card</legend>
     <label for="type_of_card">Description (for your reference only):</label>
-    <input ng-required="required" name="type_of_card" [(ngModel)]="newCard.type_of_card"><br>
+    <input name="type_of_card" [(ngModel)]="newCard.type_of_card" required/><br>
     <label for="name">Your Full Name:</label>
-    <input name="name" [(ngModel)]="newCard.name"><br>
-    <label for="photo_url">Photo URL:</label>
+    <input name="name" [(ngModel)]="newCard.name" required/><br>
+    <label for="photo_url">Photo URL (Optional):</label>
     <input name="photo_url" [(ngModel)]="newCard.photo_url"><br>
     <label for="email_address">Email Address:</label>
-    <input name="email_address" [(ngModel)]="newCard.email"><br>
+    <input name="email_address" [(ngModel)]="newCard.email" required/><br>
     <label for="phone_number">Phone Number:</label>
-    <input name="phone_number" [(ngModel)]="newCard.phone_number"><br>
-    <label for="elevator_pitch">Elevator Pitch:</label><br>
+    <input name="phone_number" [(ngModel)]="newCard.phone_number" required/><br>
+    <label for="elevator_pitch">Elevator Pitch (Optional):</label><br>
     <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch"></textarea>
     <div class="lower">
       <input type="submit" value="Create">

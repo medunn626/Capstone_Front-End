@@ -19,8 +19,8 @@ export class AuthService {
   changePasswordFailure: boolean;
 
   login(email: string, password: string) {
-    const emailField = document.getElementById('email-log')
-    const passwordField = document.getElementById('password-log')
+    const emailField = <HTMLInputElement>document.getElementById('email-log')
+    const passwordField = <HTMLInputElement>document.getElementById('password-log')
     const data = {
       'credentials': {
         'email': email,

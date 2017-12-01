@@ -15,5 +15,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     if (!localStorage.getItem('token')) {
       this.router.navigate(['/'])
+    }
   }
+
 }

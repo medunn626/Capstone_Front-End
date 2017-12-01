@@ -83,15 +83,15 @@ a {
 }
 
 /* Main Items */
-.cn-slide nav a[href="cards"]{
+.cn-slide nav a[routerLink="/cards"]{
 	background-image: url("../../Cards_FullRes_white.jpg");
 }
 
-.cn-slide nav a[href="cards/new"]{
+.cn-slide nav a[routerLink="/cards/new"]{
 	background-image: url("../../writing_hands.png");
 }
 
-.cn-slide nav a[href="auth/change-password"]{
+.cn-slide nav a[routerLink="/auth/change-password"]{
 	background-image: url("../../my-account.jpg");
 }
 

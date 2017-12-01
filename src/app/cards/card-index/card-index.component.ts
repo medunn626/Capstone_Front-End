@@ -21,7 +21,6 @@ export class CardIndexComponent implements OnInit {
         this.cardsService.deleteCardFailure = false
       },
       err => {
-        console.log('Error is', err)
         this.cardsService.deleteCardSuccess = false
         this.cardsService.deleteCardFailure = true
       }
@@ -39,9 +38,7 @@ export class CardIndexComponent implements OnInit {
     } else {
       this.cardsService.getAllCards()
       .subscribe(response => {
-        console.log(response.json());
         this.allCards = response.json()['cards']
-        console.log('All cards are', this.allCards)
       });
     }
   }

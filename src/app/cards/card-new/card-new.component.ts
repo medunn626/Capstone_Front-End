@@ -29,19 +29,13 @@ export class CardNewComponent implements OnInit {
     const newEmail = <HTMLInputElement>document.getElementById('new-email')
     const newPhone = <HTMLInputElement>document.getElementById('new-phone')
     const newElevator = <HTMLInputElement>document.getElementById('new-elevator')
-    console.log("saving card");
-    console.log(newCard);
     this.cardsService.saveCard(newCard)
     .subscribe(
       response => {
-        console.log(response.json());
         let data = response.json();
-        console.log('Data is', data)
-        console.log('Data ID is', data.card.id)
         this.router.navigate(["/cards/" + data.card.id]);
       },
       err => {
-        console.log('Error is', err)
         this.cardsService.createCardFailure = true
         newDescription.value = ''
         newName.value = ''

@@ -25,9 +25,7 @@ export class CardShowComponent implements OnInit {
       this.route.params.forEach( param => {
         this.cardsService.getOneCard(param.id)
         .subscribe(response => {
-          console.log(response.json())
           this.oneCard = response.json()
-          console.log('The one card is', this.oneCard)
         });
       });
     }

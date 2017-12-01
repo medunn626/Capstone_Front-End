@@ -30,21 +30,15 @@ export class AuthService {
   this.http.post(environment.apiServer + '/sign-in', data)
   .subscribe(
     response => {
-      console.log('You are now logged in.')
-      console.log(response)
       const user = JSON.parse(response['_body']).user
-      console.log('User is', user)
       localStorage.setItem('token', user.token)
       localStorage.setItem('id', user.id)
-      console.log('Local storage token is', localStorage.getItem('token'))
-      console.log('Local storage ID is', localStorage.getItem('id'))
       this.loginFailure = false
       this.signUpFailure = false
       this.isSignedOut = false
       this.router.navigate(['/main/'])
     },
     err => {
-      console.log('Error is', err)
       this.loginFailure = true
       this.signUpFailure = false
       emailField.value = ''
@@ -71,7 +65,6 @@ signUp(email: string, password: string, password_confirmation: string) {
         this.login(data.credentials.email, data.credentials.password)
       },
       err => {
-        console.log('Error is', err)
         this.signUpFailure = true
         this.loginFailure = false
         newEmailField.value = ''
@@ -95,13 +88,10 @@ signOut() {
   .subscribe(
     data => {
       localStorage.clear()
-      console.log('Local storage token is', localStorage.getItem('token'))
-      console.log('Local storage ID is', localStorage.getItem('id'))
       this.signOutFailure = false
       this.router.navigate(['/'])
     },
     err => {
-      console.log('Error is', err)
       this.signOutFailure = true
     }
   )
@@ -122,14 +112,12 @@ changePassword(oldPassword: string, newPassword: string) {
     this.http.patch(environment.apiServer + '/change-password/' + localStorage.getItem('id'), data, config)
     .subscribe(
       response => {
-        console.log('CPW response is', response)
         this.changePasswordSuccess = true
         this.changePasswordFailure = false
         oldField.value = ''
         newField.value = ''
       },
       err => {
-        console.log('Error is', err)
         this.changePasswordSuccess = false
         this.changePasswordFailure = true
         oldField.value = ''

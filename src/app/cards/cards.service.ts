@@ -17,21 +17,18 @@ export class CardsService {
   }
 
   getOneCard(cardId) {
-    console.log('Card ID is', cardId);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
     return this.http.get(environment.apiServer + '/cards/' + cardId, config);
   }
 
   deleteCard(card) {
-    console.log('Card ID is', card.id);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
     return this.http.delete(environment.apiServer + '/cards/' + card.id, config)
   }
 
   saveCard(newCard) {
-    console.log('New card is', newCard);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
     let cardCreateParams = {
@@ -49,7 +46,6 @@ export class CardsService {
   }
 
   updateCard(updatedCard) {
-    console.log('updatedCard is', updatedCard);
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
     let cardUpdateParams = {

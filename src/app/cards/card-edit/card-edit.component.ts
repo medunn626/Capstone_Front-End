@@ -30,7 +30,6 @@ export class CardEditComponent implements OnInit {
       this.route.params.forEach( param => {
         this.cardsService.getOneCard(param.id)
         .subscribe(response => {
-          console.log(response.json());
           this.updatedCard = response.json();
           descriptionField.value = this.updatedCard.card.type_of_card
           nameField.value = this.updatedCard.card.name
@@ -44,18 +43,13 @@ export class CardEditComponent implements OnInit {
   }
 
   updateCard(updatedCard) {
-    console.log("updating card yo!");
     this.cardsService.updateCard(updatedCard)
     .subscribe(
       response => {
-        console.log(response.json());
         let data = response.json();
-        console.log('Data is', data)
-        console.log('Data ID is', data.card.id)
         this.router.navigate(["/cards/" + data.card.id]);
     },
     err => {
-      console.log('Error is', err)
       this.cardsService.updateCardFailure = true
     }
   )

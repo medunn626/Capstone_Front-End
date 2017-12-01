@@ -14,7 +14,7 @@ export class CardShowComponent implements OnInit {
 
   constructor(
     private route : ActivatedRoute,
-    private cardsService: CardsService,
+    public cardsService: CardsService,
     public router: Router
   ) { }
 

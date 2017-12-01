@@ -14,7 +14,7 @@ export class CardEditComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private router : Router,
-    private cardsService : CardsService
+    public cardsService : CardsService
   ) { }
 
   ngOnInit() {

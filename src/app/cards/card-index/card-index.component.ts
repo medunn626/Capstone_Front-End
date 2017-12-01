@@ -29,7 +29,7 @@ export class CardIndexComponent implements OnInit {
   }
 
   constructor(
-    private cardsService : CardsService,
+    public cardsService : CardsService,
     public router: Router
   ) { }
 

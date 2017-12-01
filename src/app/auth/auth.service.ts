@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
 
 export class AuthService {
 
-  isSignedOut: boolean = true;
   loginFailure: boolean;
   signUpFailure: boolean;
   signOutFailure: boolean;
@@ -38,7 +37,6 @@ export class AuthService {
       localStorage.setItem('id', user.id)
       this.loginFailure = false
       this.signUpFailure = false
-      this.isSignedOut = false
       this.router.navigate(['/main/'])
     },
     err => {

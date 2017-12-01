@@ -1,5 +1,5 @@
 #header {
-  text-align: center;
-  color: darkblue;
-  text-shadow: 0.30px 0.30px #0000FF;
+  background:url('../logo.png') no-repeat;
+  height: 100px;
+  width: 500px;
 }

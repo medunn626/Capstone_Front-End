@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,14 +8,18 @@ import { AuthService } from '../../auth/auth.service'
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  // New user object. Used to fix template binding
+
   newUser = <any>{};
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    public router: Router
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['main'])
+    }
   }
 
   signUp() {

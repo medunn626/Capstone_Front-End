@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute }   from '@angular/router';
 import { CardsService } from '../cards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-show',
@@ -13,18 +14,23 @@ export class CardShowComponent implements OnInit {
 
   constructor(
     private route : ActivatedRoute,
-    private cardsService: CardsService
+    private cardsService: CardsService,
+    public router: Router
   ) { }
 
   ngOnInit() {
-    this.route.params.forEach( param => {
-      this.cardsService.getOneCard(param.id)
-      .subscribe(response => {
-        console.log(response.json())
-        this.oneCard = response.json()
-        console.log('The one card is', this.oneCard)
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    } else {
+      this.route.params.forEach( param => {
+        this.cardsService.getOneCard(param.id)
+        .subscribe(response => {
+          console.log(response.json())
+          this.oneCard = response.json()
+          console.log('The one card is', this.oneCard)
+        });
       });
-    });
+    }
   }
 
 }

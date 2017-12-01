@@ -18,13 +18,17 @@ export class CardEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.forEach( param => {
-      this.cardsService.getOneCard(param.id)
-      .subscribe(response => {
-        console.log(response.json());
-        this.updatedCard = response.json();
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    } else {
+      this.route.params.forEach( param => {
+        this.cardsService.getOneCard(param.id)
+        .subscribe(response => {
+          console.log(response.json());
+          this.updatedCard = response.json();
+        });
       });
-    });
+    }
   }
 
   updateCard(updatedCard) {

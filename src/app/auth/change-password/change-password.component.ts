@@ -10,7 +10,6 @@ import { NgForm } from '@angular/forms';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  // Not bound to multiple inputs, no object needed
   oldPassword: string;
   newPassword: string;
 
@@ -19,7 +18,11 @@ export class ChangePasswordComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+  }
+}
 
   changePassword() {
     this.auth.changePassword(this.oldPassword, this.newPassword)

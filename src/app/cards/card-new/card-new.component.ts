@@ -17,7 +17,9 @@ export class CardNewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    }
   }
 
   saveCard(newCard) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService } from '../cards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-index',
@@ -29,16 +30,20 @@ export class CardIndexComponent implements OnInit {
 
   constructor(
     private cardsService : CardsService,
-
+    public router: Router
   ) { }
 
   ngOnInit() {
-    this.cardsService.getAllCards()
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/'])
+    } else {
+      this.cardsService.getAllCards()
       .subscribe(response => {
         console.log(response.json());
         this.allCards = response.json()['cards']
         console.log('All cards are', this.allCards)
       });
+    }
   }
 
 }

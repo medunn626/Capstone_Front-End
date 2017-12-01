@@ -74,7 +74,6 @@ a.grayButton:hover{
 }
 
 a.grayButton:before{
-    background:url('../../../../src/my-account.jpg') no-repeat;
     height: 18px;
     left: 4px;
     position: absolute;
@@ -83,6 +82,22 @@ a.grayButton:before{
     content: '';
 }
 
-a.grayButton.twitter:before{
-    background-position:0 -20px;
+.facebook {
+	background:url("../../../fb.png") no-repeat;
+  background-size: 30px 30px
+}
+
+.twitter{
+	background:url("../../../twitter.png") no-repeat;
+  background-size: 30px 30px
+}
+
+.instagram{
+	background:url("../../../ig.png") no-repeat;
+  background-size: 30px 30px
+}
+
+.linkedin {
+	background:url("../../../linkedin.png") no-repeat;
+  background-size: 27px 30px
 }

@@ -1,19 +1,24 @@
 .cn-container{
-  top: 4%;
-  left: 15%;
-	width: 100%;
+  top: 10%;
+  left: 18%;
+	/*width: 100%;*/
   min-width: 600px;
 	max-width: 820px;
 	margin: 10px auto 0 auto;
   text-transform: uppercase;
 	position: fixed;
   height: auto;
-
+  width: auto;
 }
 
-h2 {
+#slide-main {
+  background-color: white;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+}
+
+h3 {
+  color: black;
   display: block;
-  font-weight: normal;
   margin: 0;
   padding: 0;
 }

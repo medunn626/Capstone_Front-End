@@ -54,9 +54,9 @@ export class AuthService {
 }
 
 signUp(email: string, password: string, password_confirmation: string) {
-  const newEmailField = document.getElementById('email-sign')
-  const newPasswordField = document.getElementById('password-sign')
-  const passwordConfirmField = document.getElementById('password-confirm-sign')
+  const newEmailField = <HTMLInputElement>document.getElementById('email-sign')
+  const newPasswordField = <HTMLInputElement>document.getElementById('password-sign')
+  const passwordConfirmField = <HTMLInputElement>document.getElementById('password-confirm-sign')
   if (password == password_confirmation) {
     const data = {
       'credentials': {
@@ -108,8 +108,8 @@ signOut() {
 }
 
 changePassword(oldPassword: string, newPassword: string) {
-  const oldField = document.getElementById('old')
-  const newField = document.getElementById('new')
+  const oldField = <HTMLInputElement>document.getElementById('old')
+  const newField = <HTMLInputElement>document.getElementById('new')
   if (oldPassword != newPassword ) {
     const data = {
       'passwords': {

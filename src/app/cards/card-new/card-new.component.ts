@@ -23,12 +23,12 @@ export class CardNewComponent implements OnInit {
   }
 
   saveCard(newCard) {
-    const newDescription = document.getElementById('new-description')
-    const newName = document.getElementById('new-name')
-    const newPhoto = document.getElementById('new-photo')
-    const newEmail = document.getElementById('new-email')
-    const newPhone = document.getElementById('new-phone')
-    const newElevator = document.getElementById('new-elevator')
+    const newDescription = <HTMLInputElement>document.getElementById('new-description')
+    const newName = <HTMLInputElement>document.getElementById('new-name')
+    const newPhoto = <HTMLInputElement>document.getElementById('new-photo')
+    const newEmail = <HTMLInputElement>document.getElementById('new-email')
+    const newPhone = <HTMLInputElement>document.getElementById('new-phone')
+    const newElevator = <HTMLInputElement>document.getElementById('new-elevator')
     console.log("saving card");
     console.log(newCard);
     this.cardsService.saveCard(newCard)

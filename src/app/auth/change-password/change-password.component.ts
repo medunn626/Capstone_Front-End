@@ -28,6 +28,10 @@ export class ChangePasswordComponent implements OnInit {
     this.auth.changePassword(this.oldPassword, this.newPassword)
   }
 
+  removeMessage() {
+    this.auth.removeMessage()
+  }
+
   signOut() {
     this.auth.signOut()
   }

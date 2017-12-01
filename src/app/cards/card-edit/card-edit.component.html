@@ -4,7 +4,7 @@
 <div class="container">
   <div class="back">
     <br>
-    <a routerLink="/cards" class="back">Go Back</a>
+    <a (click)="removeMessage()" routerLink="/cards" class="back">Go Back</a>
     <br>
   </div>
   <form (ngSubmit)="updateCard(updatedCard)">

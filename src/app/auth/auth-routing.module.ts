@@ -22,6 +22,10 @@ const authRoutes: Routes = [
   {
     path: 'main',
     component: MainComponent
+  },
+  {
+    path: '',
+    component: LoginComponent
   }
 ]
 

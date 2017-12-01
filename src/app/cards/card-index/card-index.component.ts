@@ -11,6 +11,11 @@ export class CardIndexComponent implements OnInit {
 
   allCards = [];
 
+  constructor(
+    public cardsService : CardsService,
+    public router: Router
+  ) { }
+
   deleteCard(deletedCard) {
     this.cardsService.deleteCard(deletedCard)
     .subscribe(
@@ -27,10 +32,9 @@ export class CardIndexComponent implements OnInit {
     );
   }
 
-  constructor(
-    public cardsService : CardsService,
-    public router: Router
-  ) { }
+  removeMessage() {
+    this.cardsService.removeMessage()
+  }
 
   ngOnInit() {
     if (!localStorage.getItem('token')) {

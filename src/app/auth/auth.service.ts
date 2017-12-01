@@ -6,17 +6,20 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Injectable()
+
 export class AuthService {
 
   isSignedOut: boolean = true;
-  // loginSuccess: boolean;
   loginFailure: boolean;
-  // signUpSuccess: boolean;
   signUpFailure: boolean;
-  // signOutSuccess: boolean;
   signOutFailure: boolean;
   changePasswordSuccess: boolean;
   changePasswordFailure: boolean;
+
+  constructor(
+    private http: Http,
+    private router: Router
+  ) { }
 
   login(email: string, password: string) {
     const emailField = <HTMLInputElement>document.getElementById('email-log')
@@ -132,9 +135,10 @@ changePassword(oldPassword: string, newPassword: string) {
   }
 }
 
-constructor(
-  private http: Http,
-  private router: Router
-) { }
+removeMessage() {
+  this.changePasswordFailure = false
+  this.changePasswordSuccess = false
+  this.signOutFailure = false
+}
 
 }

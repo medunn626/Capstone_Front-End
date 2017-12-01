@@ -62,6 +62,13 @@ export class CardsService {
     return this.http.put(environment.apiServer + '/cards/' + updatedCard.card.id, cardUpdateParams, config);
   }
 
+  removeMessage() {
+    this.deleteCardSuccess = false
+    this.deleteCardFailure = false
+    this.createCardFailure = false
+    this.updateCardFailure = false
+  }
+
   constructor(private http: Http) { }
 
 }

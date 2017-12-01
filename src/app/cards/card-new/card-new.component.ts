@@ -22,6 +22,10 @@ export class CardNewComponent implements OnInit {
     }
   }
 
+  removeMessage() {
+    this.cardsService.removeMessage()
+  }
+
   saveCard(newCard) {
     const newDescription = <HTMLInputElement>document.getElementById('new-description')
     const newName = <HTMLInputElement>document.getElementById('new-name')

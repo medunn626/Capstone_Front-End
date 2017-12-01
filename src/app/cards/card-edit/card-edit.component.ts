@@ -42,6 +42,10 @@ export class CardEditComponent implements OnInit {
     }
   }
 
+  removeMessage() {
+    this.cardsService.removeMessage()
+  }
+
   updateCard(updatedCard) {
     this.cardsService.updateCard(updatedCard)
     .subscribe(

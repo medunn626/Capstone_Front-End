@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { NavbarComponent } from './navbar/navbar.component';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,7 +20,6 @@ import { CardsModule } from './cards/cards.module';
   declarations: [
     AppComponent,
     AuthComponent,
-    NavbarComponent,
     MainComponent
   ],
   imports: [

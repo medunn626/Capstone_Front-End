@@ -10,17 +10,17 @@
   <form (ngSubmit)="updateCard(updatedCard)">
     <legend>Edit Card</legend>
     <label for="type_of_card">Description (for your reference only):</label>
-    <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card" id="update-description" placeholder={{updatedCard.card.type_of_card}}><br>
+    <input name="type_of_card" [(ngModel)]="updatedCard.type_of_card" id="update-description"><br>
     <label for="name">Name:</label>
-    <input name="name" [(ngModel)]="updatedCard.name" id="update-name" placeholder={{updatedCard.card.name}}><br>
+    <input name="name" [(ngModel)]="updatedCard.name" id="update-name"><br>
     <label for="photo_url">Photo URL (Optional):</label>
-    <input name="photo_url" [(ngModel)]="updatedCard.photo_url" id="update-photo" placeholder={{updatedCard.card.photo_url}}><br>
+    <input name="photo_url" [(ngModel)]="updatedCard.photo_url" id="update-photo"><br>
     <label for="email_address">Email Address:</label>
-    <input name="email_address" [(ngModel)]="updatedCard.email" id="update-email" placeholder={{updatedCard.card.email}}><br>
+    <input name="email_address" [(ngModel)]="updatedCard.email" id="update-email"><br>
     <label for="phone_number">Phone Number:</label>
-    <input name="phone_number" [(ngModel)]="updatedCard.phone_number" id="update-phone" placeholder={{updatedCard.card.phone_number}}><br>
+    <input name="phone_number" [(ngModel)]="updatedCard.phone_number" id="update-phone"><br>
     <label for="elevator_pitch">Elevator Pitch (Optional):</label>
-    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="updatedCard.elevator_pitch" id="update-elevator" placeholder={{updatedCard.card.elevator_pitch}}></textarea>
+    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="updatedCard.elevator_pitch" id="update-elevator"></textarea>
     <div class="lower">
       <input type="submit" value="Update">
     </div>

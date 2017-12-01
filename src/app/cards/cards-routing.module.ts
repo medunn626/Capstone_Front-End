@@ -38,6 +38,7 @@ const cardRoutes: Routes = [
     ],
     exports: [
         RouterModule
-    ]
+    ],
+    declarations: []
 })
 export class CardsRoutingModule { }

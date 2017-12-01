@@ -18,6 +18,12 @@ export class CardEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const descriptionField = <HTMLInputElement>document.getElementById('update-description')
+    const nameField = <HTMLInputElement>document.getElementById('update-name')
+    const photoField = <HTMLInputElement>document.getElementById('update-photo')
+    const emailField = <HTMLInputElement>document.getElementById('update-email')
+    const phoneField = <HTMLInputElement>document.getElementById('update-phone')
+    const elevatorField = <HTMLInputElement>document.getElementById('update-elevator')
     if (!localStorage.getItem('token')) {
       this.router.navigate(['/'])
     } else {
@@ -26,6 +32,12 @@ export class CardEditComponent implements OnInit {
         .subscribe(response => {
           console.log(response.json());
           this.updatedCard = response.json();
+          descriptionField.value = this.updatedCard.card.type_of_card
+          nameField.value = this.updatedCard.card.name
+          photoField.value = this.updatedCard.card.photo_url
+          emailField.value = this.updatedCard.card.email
+          phoneField.value = this.updatedCard.card.phone_number
+          elevatorField.value = this.updatedCard.card.elevator_pitch
         });
       });
     }

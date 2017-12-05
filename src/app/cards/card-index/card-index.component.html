@@ -1,9 +1,3 @@
-<div *ngIf="cardsService.deleteCardSuccess" class="success">
-  <h5>The card has successfully been deleted.</h5>
-</div>
-<div *ngIf="cardsService.deleteCardFailure" class="failure">
-  <h5>Sorry, this card could not be deleted.</h5>
-</div>
 <div class="container">
   <div class="back">
     <br>
@@ -11,7 +5,16 @@
     <br>
   </div>
   <form>
+    <div *ngIf="cardsService.deleteCardSuccess" class="success">
+      <h5>The card has successfully been deleted.</h5>
+    </div>
+    <div *ngIf="cardsService.deleteCardFailure" class="failure">
+      <h5>Sorry, this card could not be deleted.</h5>
+    </div>
     <legend>Your Contact Cards</legend>
+    <!-- <div #ngIf="allCards">
+      <h4>You have no cards yet. Create a new card to join the community!</h4>
+    </div> -->
     <div class="cards">
       <div class="row" *ngFor="let card of allCards">
         <h3>
@@ -29,3 +32,15 @@
     </div>
   </form>
 </div>
+
+<!-- Placeholder code for Are you sure delete modal
+<div id="confirm-delete" class="modal">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close" id="close">&times;</span>
+    <form id="confirm-delete-form">
+      <legend>Are you sure you want to delete this card?</legend>
+      <input (click)="closeModal()" type="submit" class="btn-info" value="Cancel"/>
+      <input (click)="deleteCard(card)" type="submit" class="btn-danger" value="Delete"/>
+    </form>
+  </div>
+</div> -->

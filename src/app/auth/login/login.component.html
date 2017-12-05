@@ -1,13 +1,10 @@
 <a class="hiddenanchor" id="toregister"></a>
-<div *ngIf="auth.signUpFailure" class="failure">
-  <h5>Please try again. This user already exists or you have entered the fields incorrectly.</h5>
-</div>
-<div *ngIf="auth.loginFailure" class="failure">
-  <h5>Please try again. This user doesn't exist or you have entered the fields incorrectly.</h5>
-</div>
 <div class="container">
   <h4>Welcome to ReachME, where you can create and share your business cards or personal cards from any location!</h4>
   <form ngNativeValidate>
+    <div *ngIf="auth.loginFailure" class="failure">
+      <h5>Please try again. This user doesn't exist or you have entered the fields incorrectly.</h5>
+    </div>
     <legend>Log In!</legend>
     <label for="email">Email:</label><br>
     <input [(ngModel)]="user.email" id="email-log" name="email" type="text" placeholder="Email" required/><br>

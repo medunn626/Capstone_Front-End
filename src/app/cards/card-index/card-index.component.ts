@@ -32,6 +32,16 @@ export class CardIndexComponent implements OnInit {
     );
   }
 
+  openModal() {
+    const modal = <HTMLInputElement>document.getElementById('confirm-delete')
+    modal.style.display = 'block'
+  }
+
+  closeModal() {
+    const modal = <HTMLInputElement>document.getElementById('confirm-delete')
+    modal.style.display = 'none'
+  }
+
   removeMessage() {
     this.cardsService.removeMessage()
   }

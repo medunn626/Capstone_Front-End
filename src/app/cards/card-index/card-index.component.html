@@ -12,9 +12,12 @@
       <h5>Sorry, this card could not be deleted.</h5>
     </div>
     <legend>Your Contact Cards</legend>
-    <!-- <div #ngIf="allCards">
-      <h4>You have no cards yet. Create a new card to join the community!</h4>
-    </div> -->
+    <div *ngIf="allCards.length === 0">
+      <h4>You have no cards yet. Please create one to get started.</h4>
+    </div>
+    <div *ngIf="allCards.length > 0">
+      <h4>You have {{allCards.length}} cards.</h4>
+    </div>
     <div class="cards">
       <div class="row" *ngFor="let card of allCards">
         <h3>

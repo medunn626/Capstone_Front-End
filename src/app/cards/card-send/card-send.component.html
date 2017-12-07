@@ -1,9 +1,5 @@
 <div class="container">
-  <div class="back">
-    <br>
-    <a routerLink="/cards" class="back">Go Back</a>
-    <br>
-  </div>
+  <br>
   <div *ngIf="oneCard">
     <section id="infoPage">
       <img [src]="oneCard.card.photo_url" width="164" height="164" alt="">
@@ -16,8 +12,7 @@
       <a href="https://www.twitter.com/search?f=users&vertical=default&q={{oneCard.card.name}}" target="_blank" class="grayButton twitter">Follow me on Twitter</a>
       <a href="https://www.instagram.com" target="_blank" class="grayButton instagram">Follow me on Instagram</a>
       <a href="https://www.linkedin.com" target="_blank" class="grayButton linkedin">Find me on LinkedIn</a>
-      <br><br>
-      <a routerLink="../send/{{oneCard.card.id}}" target="_blank">Send This Card!</a>
     </section>
+    <br>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { CardsComponent } from './cards.component';
 import { CardNewComponent } from './card-new/card-new.component';
 import { CardEditComponent } from './card-edit/card-edit.component';
 import { CardShowComponent } from './card-show/card-show.component';
+import { CardSendComponent } from './card-send/card-send.component';
 import { CardsService } from './cards.service';
 
 @NgModule({
@@ -16,7 +17,7 @@ import { CardsService } from './cards.service';
     RouterModule,
     FormsModule
   ],
-  declarations: [CardIndexComponent, CardsComponent, CardNewComponent, CardEditComponent, CardShowComponent],
+  declarations: [CardIndexComponent, CardsComponent, CardNewComponent, CardEditComponent, CardShowComponent, CardSendComponent],
   providers: [CardsService]
 })
 export class CardsModule { }

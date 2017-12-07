@@ -6,30 +6,35 @@ import { CardIndexComponent } from './card-index/card-index.component';
 import { CardNewComponent } from './card-new/card-new.component';
 import { CardEditComponent } from './card-edit/card-edit.component';
 import { CardShowComponent } from './card-show/card-show.component';
+import { CardSendComponent } from './card-send/card-send.component'
 
 const cardRoutes: Routes = [
-    {
-        path: 'cards',
-        component: CardsComponent,
-        children: [ //create the sub sections (children) for this route
-            {
-                path: '',
-                component: CardIndexComponent
-            },
-            {
-                path: 'new',
-                component: CardNewComponent
-            },
-            {
-                path: 'edit/:id',
-                component: CardEditComponent
-            },
-            {
-                path: ':id',
-                component: CardShowComponent
-            }
-        ]
-    }
+  {
+    path: 'cards',
+    component: CardsComponent,
+    children: [ //create the sub sections (children) for this route
+      {
+        path: '',
+        component: CardIndexComponent
+      },
+      {
+        path: 'new',
+        component: CardNewComponent
+      },
+      {
+        path: 'edit/:id',
+        component: CardEditComponent
+      },
+      {
+        path: ':id',
+        component: CardShowComponent
+      },
+      {
+        path: 'send/:id',
+        component: CardSendComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

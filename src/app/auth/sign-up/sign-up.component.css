@@ -151,3 +151,9 @@ input[type=submit]:active {
 		transform: translateX(-20px);
 	}
 }
+
+@media screen and (max-width: 475px){
+  .container {
+    width: 300px;
+  }
+}

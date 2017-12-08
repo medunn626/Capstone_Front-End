@@ -3,3 +3,9 @@
   height: 100px;
   width: 500px;
 }
+
+@media screen and (max-width: 475px){
+  #header {
+    background:url('../small_logo.png') no-repeat;
+  }
+}

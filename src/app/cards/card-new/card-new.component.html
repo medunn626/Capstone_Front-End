@@ -20,7 +20,7 @@
     <label for="phone_number">Phone Number:</label>
     <input name="phone_number" [(ngModel)]="newCard.phone_number" id="new-phone" required/><br>
     <label for="elevator_pitch">Elevator Pitch (Optional):</label><br>
-    <textarea rows="5" cols="60" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch" id="new-elevator"></textarea>
+    <textarea rows="5" cols="60" maxlength="250" name="elevator_pitch" [(ngModel)]="newCard.elevator_pitch" id="new-elevator"></textarea>
     <div class="lower">
       <input type="submit" value="Create">
     </div>

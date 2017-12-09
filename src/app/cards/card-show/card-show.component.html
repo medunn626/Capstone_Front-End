@@ -12,10 +12,16 @@
         <h4>{{oneCard.card.email}}</h4> <h4>{{oneCard.card.phone_number}}</h4>
       </header>
       <p class="description">{{oneCard.card.elevator_pitch}}</p>
-      <a href="https://www.facebook.com/search/top/?q={{oneCard.card.name}}" target="_blank" class="grayButton facebook">Find me on Facebook</a>
-      <a href="https://www.twitter.com/search?f=users&vertical=default&q={{oneCard.card.name}}" target="_blank" class="grayButton twitter">Follow me on Twitter</a>
-      <a href="https://www.instagram.com" target="_blank" class="grayButton instagram">Follow me on Instagram</a>
-      <a href="https://www.linkedin.com" target="_blank" class="grayButton linkedin">Find me on LinkedIn</a>
+      <!-- Default links section -->
+      <a href="https://www.facebook.com/search/top/?q={{oneCard.card.name}}" target="_blank" class="grayButton facebook" id="regular">Find me on Facebook</a>
+      <a href="https://www.twitter.com/search?f=users&vertical=default&q={{oneCard.card.name}}" target="_blank" class="grayButton twitter" id="regular">Follow me on Twitter</a>
+      <a href="https://www.instagram.com" target="_blank" class="grayButton instagram" id="regular">Follow me on Instagram</a>
+      <a href="https://www.linkedin.com" target="_blank" class="grayButton linkedin" id="regular">Find me on LinkedIn</a>
+      <!-- Small mobile links section -->
+      <a href="https://www.facebook.com/search/top/?q={{oneCard.card.name}}" target="_blank" class="grayButton facebook"  id="small"></a>
+      <a href="https://www.twitter.com/search?f=users&vertical=default&q={{oneCard.card.name}}" target="_blank" class="grayButton twitter" id="small"></a>
+      <a href="https://www.instagram.com" target="_blank" class="grayButton instagram" id= "small"></a>
+      <a href="https://www.linkedin.com" target="_blank" class="grayButton linkedin" id="small"></a>
       <br><br>
       <a routerLink="../send/{{oneCard.card.id}}" target="_blank">Send This Card!</a>
     </section>

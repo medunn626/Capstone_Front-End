@@ -13,6 +13,10 @@
  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
 }
 
+#small {
+  display: none;
+}
+
 a.back {
 font-size: 13px;
 color: #aaa;
@@ -95,4 +99,33 @@ a.grayButton:before{
   display: inline-block;
   max-height: 600px;
   overflow: scroll;
+}
+
+@media screen and (max-height: 720px){
+  #fixed {
+    max-height: 520px;
+  }
+}
+
+@media screen and (max-width: 700px){
+  img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 475px){
+  #fixed {
+    max-width: 300px;
+    left: 5%;
+    right: 50%;
+    top: 10%
+  }
+  #small {
+    float: left;
+    display: block;
+    height: 30px;
+  }
+  #regular {
+    display: none;
+  }
 }

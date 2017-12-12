@@ -122,13 +122,25 @@ input[type=submit]:active {
  background-image: linear-gradient(to bottom left 90deg, #6ec2e8 0%, #b6e2ff 100%);
 }
 
+#fixed {
+  display: inline-block;
+  overflow: scroll;
+}
+
+@media screen and (max-height: 720px){
+  #fixed {
+    top: 23%;
+    max-height: 525px;
+  }
+}
+
 @media screen and (max-width: 545px){
   .container {
     width: 300px;
   }
-
   textarea {
     width: 20em;
-    height: 10em;
+    height: 5em;
+    overflow: scroll;
   }
 }

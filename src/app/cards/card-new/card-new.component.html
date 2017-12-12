@@ -1,7 +1,7 @@
 <div *ngIf="cardsService.createCardFailure" class="failure">
   <h5>Sorry, this card could not be created.</h5>
 </div>
-<div class="container">
+<div class="container" id="fixed">
   <div class="back">
     <br>
     <a (click)="removeMessage()" routerLink="/main" class="back">Go Back</a>

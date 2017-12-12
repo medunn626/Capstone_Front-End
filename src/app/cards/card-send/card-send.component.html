@@ -5,7 +5,7 @@
       <img [src]="oneCard.card.photo_url" width="164" height="164" alt="">
       <header>
         <h1>{{oneCard.card.name}}</h1>
-        <h4>{{oneCard.card.email}}</h4> <h4>{{oneCard.card.phone_number}}</h4>
+        <a href="mailto:{{oneCard.card.email}}" target="_top">{{oneCard.card.email}}</a> <h4>{{oneCard.card.phone_number}}</h4>
       </header>
       <p class="description">{{oneCard.card.elevator_pitch}}</p>
       <!-- Default links section -->
